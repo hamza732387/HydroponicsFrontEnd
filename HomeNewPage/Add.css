@@ -1,15 +1,12 @@
-<html>
-<head>
-    <title>Document</title>
-    
-</head>
-<style>
 *{
-    transition: 1s;
+    
+    transition: 0.5s;
+    box-sizing: border-box;
 }
-/* body{
-    background: grey;
-} */
+body{
+
+    background-color: rgba(211, 214, 203, 0.952);
+}
 .content{
  margin-top: 20px;
  padding: 33px;
@@ -42,6 +39,7 @@ textarea{
     }
         
  .script{
+    transition: 1s;
     border: none;
          outline: none;
          border-bottom: 2px solid gray;
@@ -73,7 +71,7 @@ textarea{
     
     }
     .Name_Picture{
-         border: none;
+          border: none;
          outline: none;
          border-bottom: 2px solid gray;
          border-radius: 10px;
@@ -85,9 +83,9 @@ padding: 20px;
         margin-top: -216px;
     margin-left: 550px;  
     text-decoration: ltr;
-    text-align: left;
+    text-align: left; 
 
-
+    
 }
 .Name_Picture::placeholder{
     font-size: 20px;
@@ -173,81 +171,3 @@ textarea:focus::placeholder{
     height: 252px;
 
 }
-
-</style>
-<body id="body" style="background: linear-gradient(to left ,rgb(197, 141, 189) , rgb(85, 67, 70))">
-    <div class="content">
-        <hr class="line"> 
-
-
-        <div class="div" id="div">
-
-            <img src="1.jpg" class="image">
-        </div>
-    <input type="file" class="file" style="display: none;" id="file">
-<input type="text"  placeholder=" Name ...." id="Name_Picture" class="Name_Picture">  
-<br>
-<input type="text"  placeholder="Age ...." id="Age_Picture" class="Age_Picture">  
-
-<br>
-<input type="text"  placeholder="Location ...." id="Location_Picture" class="Location_Picture">  
-
-<!-- <textarea id="script"  placeholder="Script ...." class="script  _Picture"></textarea> -->
-<!-- <textarea id="codes"   placeholder="Textarea ...." class="codes _Picture" ></textarea> -->
-<textarea id="script"  placeholder="Script ...." class="script  _Picture"></textarea>
-<br>
-<textarea id="codes"   placeholder="Textarea ...." class="codes _Picture" ></textarea>
-
-
-<button id="button" onclick="Add_New_Plant()">Add</button>
-
-</div>
-
-
-<script>
-
-
-
-var Name=document.getElementById("Name_Picture");
-var Age=document.getElementById("Age_Picture");
-var Location=document.getElementById("Location_Picture");
-var Textarea=document.getElementById("codes _Picture");
-var Script=document.getElementById("script_Picture");
-
-
-
-let header = new Headers() 
-header.append('content-type' , 'application/json');
-
-function Add_New_Plant() {
-
-fetch('http://localhost:3000/Hydroponics',{
-    method : 'post',
-    headers : header,
-    body : JSON.stringify({
-    
-    name : Name.value,
-    Age : Age.value,
- location :Location.value,
- script :  Script.value,
- codes :  codes.value,
-    
-    
-    
-    })
-})
-
-}
-
-
-
-
-
-    var codes =document.getElementById("codes").value;
-document.getElementById("output").innerHTML += "<br>" +codes;
-
-</script>
-
-</body>
-
-</html>
